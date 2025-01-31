@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalender abonnieren</title>
+    <style>
+        .calendar-button {
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #calendar-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border: 2px solid #000;
+            z-index: 1000;
+            width: 400px;
+        }
+    </style>
+    <script>
+        function addToCalendar(platform) {
+            let icsUrl = "https://raw.githubusercontent.com/23784123/oeffentlicherKalaender/refs/heads/main/calendar.ics";
+
+            if (platform === 'apple') {
+                window.location.href = "webcal://" + icsUrl.replace("https://", "");
+            } else if (platform === 'google') {
+                showGooglePopup(icsUrl);
+            } else if (platform === 'outlook') {
+                window.open("https://outlook.live.com/owa/?path=/calendar/action/compose&rru=addsubscription&name=Events&url=" + encodeURIComponent(icsUrl), "_blank");
+            } else {
+                alert("Bitte wähle einen Kalender aus.");
+            }
+        }
+
+        function showGooglePopup(icsUrl) {
+            const alertMessage = `
+                <h3>Wichtige Informationen zum Hinzufügen des Events</h3>
+                <p>Um das Event zu deinem Google Kalender hinzuzufügen, folge bitte den untenstehenden Schritten:</p>
+                <ul>
+                    <li>1. Kopiere den folgenden Link:</li>
+                    <li><strong><a href="javascript:void(0);" id="link-to-copy">Google Kalender Event Link</a></strong></li>
+                    <li>2. Öffne den Link und füge ihn in deinen Kalender ein.</li>
+                </ul>
+                <p>Nachdem du den Link kopiert hast, kannst du dieses Fenster schließen.</p>
+                <button id="close-alert">Fenster schließen</button>
+            `;
+
+            const alertWindow = document.createElement('div');
+            alertWindow.classList.add('popup');
+            alertWindow.innerHTML = alertMessage;
+            document.body.appendChild(alertWindow);
+
+            document.getElementById('link-to-copy').addEventListener('click', function() {
+                navigator.clipboard.writeText(icsUrl).then(() => {
+                    alert('Der Link wurde in die Zwischenablage kopiert!');
+                }).catch(err => {
+                    console.error('Fehler beim Kopieren:', err);
+                });
+            });
+
+            document.getElementById('close-alert').addEventListener('click', function() {
+                document.body.removeChild(alertWindow);
+                window.open("https://calendar.google.com/calendar/u/0/r/settings/addbyurl?cid=" + encodeURIComponent(icsUrl), "_blank");
+            });
+        }
+    </script>
+</head>
+<body>
+    <h2>Kalender abonnieren</h2>
+    <p>Erhalte alle Veranstaltungen, Informationen und Benachrichtigungen in deinem Kalender  </p>
+    <p>Wähle dein bevorzugtes Kalendersystem:</p>
+
+    <div id="calendar-buttons">
+        <img src="Apple_icon.png" alt="Apple Kalender" class="calendar-button" onclick="addToCalendar('apple')" title="Apple Kalender abonnieren">
+        <img src="Google_icon.png" alt="Google Kalender" class="calendar-button" onclick="addToCalendar('google')" title="Google Kalender abonnieren">
+        <img src="Outlook_icon.png" alt="Outlook Kalender" class="calendar-button" onclick="addToCalendar('outlook')" title="Outlook Kalender abonnieren">
+    </div>
+</body>
+</html>
