@@ -18,69 +18,39 @@
             justify-content: center;
             flex-wrap: wrap;
         }
-        .popup {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #fff;
-            padding: 20px;
-            border: 2px solid #000;
-            z-index: 1000;
-            width: 400px;
+        .download-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .download-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
         }
     </style>
     <script>
         function addToCalendar(platform) {
-            let icsUrl = "https://raw.githubusercontent.com/23784123/oeffentlicherKalaender/refs/heads/main/calendar.ics";
+            let icsUrl = "calendar.ics"; // Lokale Datei im Projektordner
 
             if (platform === 'apple') {
-                window.location.href = "webcal://" + icsUrl.replace("https://", "");
+                window.location.href = "webcal://" + window.location.host + "/" + icsUrl;
             } else if (platform === 'google') {
-                showGooglePopup(icsUrl);
+                window.open("https://calendar.google.com/calendar/u/0/r/settings/addbyurl?cid=" + encodeURIComponent(window.location.origin + "/" + icsUrl), "_blank");
             } else if (platform === 'outlook') {
-                window.open("https://outlook.live.com/owa/?path=/calendar/action/compose&rru=addsubscription&name=Events&url=" + encodeURIComponent(icsUrl), "_blank");
+                window.open("https://outlook.live.com/owa/?path=/calendar/action/compose&rru=addsubscription&name=Events&url=" + encodeURIComponent(window.location.origin + "/" + icsUrl), "_blank");
             } else {
                 alert("Bitte wähle einen Kalender aus.");
             }
-        }
-
-        function showGooglePopup(icsUrl) {
-            const alertMessage = `
-                <h3>Wichtige Informationen zum Hinzufügen des Events</h3>
-                <p>Um das Event zu deinem Google Kalender hinzuzufügen, folge bitte den untenstehenden Schritten:</p>
-                <ul>
-                    <li>1. Kopiere den folgenden Link:</li>
-                    <li><strong><a href="javascript:void(0);" id="link-to-copy">Google Kalender Event Link</a></strong></li>
-                    <li>2. Öffne den Link und füge ihn in deinen Kalender ein.</li>
-                </ul>
-                <p>Nachdem du den Link kopiert hast, kannst du dieses Fenster schließen.</p>
-                <button id="close-alert">Fenster schließen</button>
-            `;
-
-            const alertWindow = document.createElement('div');
-            alertWindow.classList.add('popup');
-            alertWindow.innerHTML = alertMessage;
-            document.body.appendChild(alertWindow);
-
-            document.getElementById('link-to-copy').addEventListener('click', function() {
-                navigator.clipboard.writeText(icsUrl).then(() => {
-                    alert('Der Link wurde in die Zwischenablage kopiert!');
-                }).catch(err => {
-                    console.error('Fehler beim Kopieren:', err);
-                });
-            });
-
-            document.getElementById('close-alert').addEventListener('click', function() {
-                document.body.removeChild(alertWindow);
-                window.open("https://calendar.google.com/calendar/u/0/r/settings/addbyurl?cid=" + encodeURIComponent(icsUrl), "_blank");
-            });
         }
     </script>
 </head>
 <body>
     <h2>Kalender abonnieren</h2>
-    <p>Erhalte alle Veranstaltungen, Informationen und Benachrichtigungen in deinem Kalender  </p>
+    <p>Erhalte alle Veranstaltungen, Informationen und Benachrichtigungen in deinem Kalender.</p>
     <p>Wähle dein bevorzugtes Kalendersystem:</p>
 
     <div id="calendar-buttons">
@@ -88,5 +58,20 @@
         <img src="Google_icon.png" alt="Google Kalender" class="calendar-button" onclick="addToCalendar('google')" title="Google Kalender abonnieren">
         <img src="Outlook_icon.png" alt="Outlook Kalender" class="calendar-button" onclick="addToCalendar('outlook')" title="Outlook Kalender abonnieren">
     </div>
+
+    <!-- Fallback für nicht abonnierbare Kalender -->
+    <div class="download-section">
+        <h3>📥 Alternativer Download für nicht unterstützte Kalender</h3>
+        <p>
+            Falls dein Kalender kein `.ics`-Abo über eine URL unterstützt (z. B. **Samsung-Standard-Kalender, Huawei-Kalender, Xiaomi-Kalender, OPPO, VIVO**), kannst du die Datei hier herunterladen und manuell importieren.
+        </p>
+        <p><strong>⚠️ Hinweis:</strong> Diese Termine werden nicht automatisch aktualisiert.</p>
+        
+        <!-- Download-Button verweist auf lokale Datei -->
+        <a href="calendar.ics" download="Kalender.ics" class="download-button">
+            📥 Kalender herunterladen
+        </a>
+    </div>
+
 </body>
 </html>

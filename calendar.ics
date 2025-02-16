@@ -1,0 +1,94 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:ics.py - http://git.io/lLljaA
+BEGIN:VEVENT
+DESCRIPTION:Veranstaltung der Subkultur mit Musik und Kultur - Zuletzt aktualisiert am 2025-01-31 16:35:29.065942+01:00
+DTEND:20250309T013000Z
+LOCATION:Auf d. Lände 7\, 82256 Fürstenfeldbruck\, Bayern\, Deutschland
+DTSTART:20250308T193000Z
+SUMMARY:Subkultur Veranstaltung
+UID:subkultur-0308@example.com
+URL:http://www.subkultur-ffb.de/
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Veranstaltung der Subkultur mit Musik und Kultur - Zuletzt aktualisiert am 2025-01-31 16:35:29.067185+01:00
+DTEND:20250413T003000Z
+LOCATION:Auf d. Lände 7\, 82256 Fürstenfeldbruck\, Bayern\, Deutschland
+DTSTART:20250412T183000Z
+SUMMARY:Subkultur Veranstaltung
+UID:subkultur-0412@example.com
+URL:http://www.subkultur-ffb.de/
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Veranstaltung der Subkultur mit Musik und Kultur - Zuletzt aktualisiert am 2025-01-31 16:35:29.067605+01:00
+DTEND:20250504T003000Z
+LOCATION:Auf d. Lände 7\, 82256 Fürstenfeldbruck\, Bayern\, Deutschland
+DTSTART:20250503T183000Z
+SUMMARY:Subkultur Veranstaltung
+UID:subkultur-0503@example.com
+URL:http://www.subkultur-ffb.de/
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Veranstaltung der Subkultur mit Musik und Kultur - Zuletzt aktualisiert am 2025-01-31 16:35:29.066607+01:00
+DTEND:20250406T003000Z
+LOCATION:Auf d. Lände 7\, 82256 Fürstenfeldbruck\, Bayern\, Deutschland
+DTSTART:20250405T183000Z
+SUMMARY:Subkultur Veranstaltung
+UID:subkultur-0405@example.com
+URL:http://www.subkultur-ffb.de/
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Veranstaltung der Subkultur mit Musik und Kultur - Zuletzt aktualisiert am 2025-01-31 16:35:29.066488+01:00
+DTEND:20250323T013000Z
+LOCATION:Auf d. Lände 7\, 82256 Fürstenfeldbruck\, Bayern\, Deutschland
+DTSTART:20250322T193000Z
+SUMMARY:Subkultur Veranstaltung
+UID:subkultur-0322@example.com
+URL:http://www.subkultur-ffb.de/
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Veranstaltung der Subkultur mit Musik und Kultur - Zuletzt aktualisiert am 2025-01-31 16:35:29.066552+01:00
+DTEND:20250330T013000Z
+LOCATION:Auf d. Lände 7\, 82256 Fürstenfeldbruck\, Bayern\, Deutschland
+DTSTART:20250329T193000Z
+SUMMARY:Subkultur Veranstaltung
+UID:subkultur-0329@example.com
+URL:http://www.subkultur-ffb.de/
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Veranstaltung der Subkultur mit Musik und Kultur - Zuletzt aktualisiert am 2025-01-31 16:35:29.066316+01:00
+DTEND:20250316T013000Z
+LOCATION:Auf d. Lände 7\, 82256 Fürstenfeldbruck\, Bayern\, Deutschland
+DTSTART:20250315T193000Z
+SUMMARY:Subkultur Veranstaltung
+UID:subkultur-0315@example.com
+URL:http://www.subkultur-ffb.de/
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Veranstaltung der Subkultur mit Musik und Kultur - Zuletzt aktualisiert am 2025-01-31 16:35:29.067358+01:00
+DTEND:20250427T003000Z
+LOCATION:Auf d. Lände 7\, 82256 Fürstenfeldbruck\, Bayern\, Deutschland
+DTSTART:20250426T183000Z
+SUMMARY:Subkultur Veranstaltung
+UID:subkultur-0426@example.com
+URL:http://www.subkultur-ffb.de/
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Veranstaltung der Subkultur mit Musik und Kultur - Zuletzt aktualisiert am 2025-01-31 16:35:29.068046+01:00
+DTEND:20250511T003000Z
+LOCATION:Auf d. Lände 7\, 82256 Fürstenfeldbruck\, Bayern\, Deutschland
+DTSTART:20250510T183000Z
+SUMMARY:Subkultur Veranstaltung
+UID:subkultur-0510@example.com
+URL:http://www.subkultur-ffb.de/
+END:VEVENT
+BEGIN:VEVENT
+DESCRIPTION:Veranstaltung der Subkultur mit Musik und Kultur - Zuletzt aktualisiert am 2025-01-31 16:35:29.068514+01:00
+DTEND:20250518T003000Z
+LOCATION:Auf d. Lände 7\, 82256 Fürstenfeldbruck\, Bayern\, Deutschland
+DTSTART:20250517T183000Z
+SUMMARY:Subkultur Veranstaltung
+UID:subkultur-0517@example.com
+URL:http://www.subkultur-ffb.de/
+END:VEVENT
+END:VCALENDAR
